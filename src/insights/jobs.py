@@ -6,9 +6,7 @@ import csv
 @lru_cache
 def read(path: str) -> List[Dict]:
     with open(path, 'r') as file:
-        csv_file = csv.reader(file)
-        #  next() pulará a primeira linha, o cabeçalho
-        next(csv_file)
+        csv_file = csv.DictReader(file)
         jobs = []
         for line in csv_file:
             jobs.append(line)
