@@ -1,22 +1,19 @@
 from functools import lru_cache
 from typing import List, Dict
+import csv
 
 
 @lru_cache
 def read(path: str) -> List[Dict]:
-    """Reads a file from a given path and returns its contents
-
-    Parameters
-    ----------
-    path : str
-        Full path to file
-
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
-    raise NotImplementedError
+    with open(path, 'r') as file:
+        csv_file = csv.reader(file)
+        #  next() pulará a primeira linha, o cabeçalho
+        next(csv_file)
+        jobs = []
+        for line in csv_file:
+            jobs.append(line)
+        return jobs
+# print(read('data/jobs.csv'))
 
 
 def get_unique_job_types(path: str) -> List[str]:
