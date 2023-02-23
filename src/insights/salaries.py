@@ -6,13 +6,13 @@ def get_max_salary(path: str) -> int:
     job_list_no_filter = read(path)
     job_list_filtred = []
     for job in job_list_no_filter:
-        if job['max_salary'] != '':
+        if job['max_salary'] != '' and job['max_salary'] != 'invalid':
             job_list_filtred.append(job['max_salary'])
 
     max_salary = 0
     for job in job_list_filtred:
-        if int(max_salary) < int(job):
-            max_salary = job
+        if int(job) > int(max_salary ):
+            max_salary = int(job)
     return max_salary
 
 
