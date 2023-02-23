@@ -11,7 +11,7 @@ def get_max_salary(path: str) -> int:
 
     max_salary = 0
     for job in job_list_filtred:
-        if int(job) > int(max_salary ):
+        if int(job) > int(max_salary):
             max_salary = int(job)
     return max_salary
 
