@@ -12,3 +12,6 @@ def test_counter():
 
         # A palavra 'complex' aparece 2 vezes na frase da variável 'mock'
         assert count_ocurrences('data/jobs.csv', 'complex') == 2
+
+        # A palavra 'Python' não aparece na frase da variável 'mock'
+        assert count_ocurrences('data/jobs.csv', 'Python') == 0
